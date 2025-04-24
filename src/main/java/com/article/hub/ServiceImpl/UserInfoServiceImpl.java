@@ -101,4 +101,61 @@ public class UserInfoServiceImpl implements UserInfoService {
         }
         return new ResponseEntity<>("{\"message\":\"Something went wrong\"}", HttpStatus.INTERNAL_SERVER_ERROR);
     }
+
+    @Override
+    public ResponseEntity<?> getAllAppuser() {
+        try {
+            // we have created a method 'getEmail()' in the JwtAuthFilter class which will fetch and return the email
+            return new ResponseEntity<>(userInfoRepository.getAllAppuser(jwtAuthFilter.getEmail()), HttpStatus.OK);
+        } catch (Exception ex) {
+            log.error("Exception in getAllAppUser : {}", ex.getMessage()); // this will return the exception details as well
+//        log.error("Exception in getAllAppUser : {}", ex); // or we can simply return the exception
+        }
+        return new ResponseEntity<>("{\"message\":\"Something went wrong\"}", HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
+    @Override
+    public ResponseEntity<?> updateUserStatus(UserInfo userInfo) {
+        try {
+            if (!Objects.isNull(userInfo) && !Objects.isNull(userInfo.getId()) && !Objects.isNull(userInfo.getStatus())) {
+                Integer updateCount = userInfoRepository.updateUserStatus(userInfo.getStatus(), userInfo.getId());
+                if (updateCount == 0) {
+                    return new ResponseEntity<>("{\"message\":\"User Id Doesn't exist.\"}", HttpStatus.BAD_REQUEST);
+                } else {
+                    return new ResponseEntity<>("{\"message\":\"User status updated successfully.\"}", HttpStatus.OK);
+                }
+            } else {
+                return new ResponseEntity<>("{\"message\":\"Invalid Data\"}", HttpStatus.BAD_REQUEST);
+            }
+        } catch (Exception ex) {
+            log.error("Exception in updateUserStatus : {}", ex);
+        }
+        return new ResponseEntity<>("{\"message\":\"Something went wrong\"}", HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
+
+    // this method will check the token is expired or not
+    @Override
+    public ResponseEntity<?> checkToken() {
+        return new ResponseEntity<>("{\"message\":\"true\"}", HttpStatus.OK);
+    }
+
+
+    @Override
+    public ResponseEntity<?> updateUser(UserInfo userInfo) {
+        try {
+            Optional<UserInfo> optionalUserInfo = userInfoRepository.findById(userInfo.getId());
+            if (!optionalUserInfo.isPresent()) {
+                return new ResponseEntity<>("{\"message\":\"User not found.\"}", HttpStatus.BAD_REQUEST);
+            }
+            UserInfo userInfo1 = optionalUserInfo.get();
+            userInfo1.setEmail(userInfo.getEmail());
+            userInfo1.setName(userInfo.getName());
+            userInfoRepository.save(userInfo1);
+            return new ResponseEntity<>("{\"message\":\"User updated successfully.\"}", HttpStatus.OK);
+        } catch (Exception ex) {
+            log.error("Exception in updateUser : {}", ex.getMessage());
+        }
+        return new ResponseEntity<>("{\"message\":\"Something went wrong\"}", HttpStatus.INTERNAL_SERVER_ERROR);
+    }
 }

@@ -8,6 +8,13 @@ import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
+@NamedQuery(name = "UserInfo.getAllAppuser", query = "select new com.article.hub.Entity.UserInfo(id, name, email, status) from appuser where isDeletable = 'true' and email not in (:email)")
+// in the above query the (id, name, email, status) is being used as the constructor
+
+// query to update the appuser's status
+@NamedQuery(name = "UserInfo.updateUserStatus", query = "update appuser set status=:status where id=:id and isDeletable='true'")
+
+
 @Entity(name = "appuser")
 @Table(name = "appuser")
 //@Data
@@ -77,7 +84,7 @@ public class UserInfo implements Serializable {
 
 
     // Default constructor
-    public UserInfo(){
+    public UserInfo() {
 
     }
 

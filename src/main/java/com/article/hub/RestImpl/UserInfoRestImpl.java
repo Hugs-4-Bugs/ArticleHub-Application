@@ -42,4 +42,44 @@ public class UserInfoRestImpl implements UserInfoRest {
         }
         return new ResponseEntity<>("{\"message\":\"Something went wrong\"}", HttpStatus.INTERNAL_SERVER_ERROR);
     }
+
+    @Override
+    public ResponseEntity<?> getAllAppuser() {
+        try {
+            return userInfoService.getAllAppuser();
+        } catch (Exception ex) {
+            log.error("Exception in getAllAppuser : {}", ex);
+        }
+        return new ResponseEntity<>("{\"message\":\"Something went wrong\"}", HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
+    @Override
+    public ResponseEntity<?> updateUserStatus(UserInfo userInfo) {
+        try {
+            return userInfoService.updateUserStatus(userInfo);
+        } catch (Exception ex) {
+            log.error("Exception in updateUserStatus : {}", ex);
+        }
+        return new ResponseEntity<>("{\"message\":\"Something went wrong\"}", HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
+    @Override
+    public ResponseEntity<?> checkToken() {
+        try {
+            return userInfoService.checkToken();
+        } catch (Exception ex) {
+            log.error("Exception in checkToke : {}", ex);
+        }
+        return new ResponseEntity<>("{\"message\":\"Something went wrong\"}", HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
+    @Override
+    public ResponseEntity<?> updateUser(UserInfo userInfo) {
+        try {
+            return userInfoService.updateUser(userInfo);
+        } catch (Exception ex) {
+            log.error("Exception in updateUser : {}", ex);
+        }
+        return new ResponseEntity<>("{\"message\":\"Something went wrong\"}", HttpStatus.INTERNAL_SERVER_ERROR);
+    }
 }

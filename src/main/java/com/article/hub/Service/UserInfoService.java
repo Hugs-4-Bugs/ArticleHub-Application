@@ -9,4 +9,12 @@ public interface UserInfoService {
     ResponseEntity<?> addNewAppuser(UserInfo userInfo);
 
     ResponseEntity<?> login(AuthRequest authRequest);
+
+    ResponseEntity<?> getAllAppuser();
+
+    ResponseEntity<?> updateUserStatus(UserInfo userInfo);
+
+    ResponseEntity<?> checkToken();
+
+    ResponseEntity<?> updateUser(UserInfo userInfo);
 }
