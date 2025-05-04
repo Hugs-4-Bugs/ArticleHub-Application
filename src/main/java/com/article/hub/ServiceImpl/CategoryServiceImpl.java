@@ -2,6 +2,7 @@ package com.article.hub.ServiceImpl;
 
 import com.article.hub.DAO.CategoryRepository;
 import com.article.hub.Entity.Category;
+import com.article.hub.Filter.JwtAuthFilter;
 import com.article.hub.Service.CategoryService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,6 +20,9 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Autowired
     CategoryRepository categoryRepository;
+
+    @Autowired
+    JwtAuthFilter jwtAuthFilter;
 
     @Override
     public ResponseEntity<?> addNewCategory(Category category) {
@@ -39,7 +43,37 @@ public class CategoryServiceImpl implements CategoryService {
         }
         return new ResponseEntity<>("{\"message\":\"Something went wrong.\"}", HttpStatus.INTERNAL_SERVER_ERROR);
     }
+
+    @Override
+    public ResponseEntity<?> getAllCategory() {
+//        log.info("Inside getAllCategory");
+        try {
+            return new ResponseEntity<>(categoryRepository.findAll(), HttpStatus.OK);
+        } catch (Exception ex) {
+            log.error("Exception in getAllCategory: {}", ex);
+        }
+        return new ResponseEntity<>("{\"message\":\"Something went wrong.\"}", HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
+    @Override
+    public ResponseEntity<?> updateCategory(Category category) {
+        try {
+            if (!Objects.isNull(category) && !Objects.isNull(category.getId()) && !Objects.isNull(category.getName())) {
+                if (!categoryRepository.existsByNameIgnoreCase(category.getName())) {
+                    Integer updateCount = categoryRepository.updateCategory(category.getName(), category.getId());
+                    if (updateCount == 0) {
+                        return new ResponseEntity<>("{\"message\":\"Category does not found.\"}", HttpStatus.NOT_FOUND);
+                    } else {
+                        return new ResponseEntity<>("{\"message\":\"Category updated successfully.\"}", HttpStatus.OK);
+                    }
+                } else {
+                    return new ResponseEntity<>("{\"message\":\"Category with name ( " + category.getName() + " ) already exists.\"}", HttpStatus.CONFLICT);
+                }
+            }
+            return new ResponseEntity<>("{\"message\":\"Invalid data.\"}", HttpStatus.BAD_REQUEST);
+        } catch (Exception ex) {
+            log.error("Exception in updateCatgory : {}", ex);
+        }
+        return new ResponseEntity<>("{\"message\":\"Something went wrong.\"}", HttpStatus.INTERNAL_SERVER_ERROR);
+    }
 }
-
-
-
