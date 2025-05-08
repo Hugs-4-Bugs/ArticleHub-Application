@@ -23,6 +23,9 @@ public interface ArticleRest {
 
     /**
      we can use either @GetMapping or @DeleteMapping, both will work
+     for testing in Postman:
+          if you will use @GetMapping use 'GET' http method and
+          if you will use @DeleteMapping use 'DELETE' http method
      */
 //    @GetMapping(path = "/deleteArticle/{id}")
     @DeleteMapping(path = "/deleteArticle/{id}")
