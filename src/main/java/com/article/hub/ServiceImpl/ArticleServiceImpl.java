@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.Objects;
+import java.util.Optional;
 
 
 @Service
@@ -47,6 +48,7 @@ public class ArticleServiceImpl implements ArticleService {
 
 
 
+// this API requires user to log in with valid credentials to see all the articles (both published or unpublished)
     @Override
     public ResponseEntity<?> getAllArticle() {
         try {
@@ -69,6 +71,47 @@ public class ArticleServiceImpl implements ArticleService {
             return new ResponseEntity<>(articleRepository.getAllArticle("Published"), HttpStatus.OK);
         } catch (Exception ex) {
             log.error("Exception in getAllPublishedArticle : {}", ex);
+        }
+        return new ResponseEntity<>("{\"message\":\"Something went wrong.\"}", HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
+
+    @Override
+    public ResponseEntity<?> updateArticle(Article article) {
+        try {
+            String errorKeyValue = article.checkForNullValues();
+            if (Objects.isNull(errorKeyValue) && !Objects.isNull(article.getId())) {
+                // below order should be same as constructor and query parameter in the entity class of Article.
+                Integer updateCont = articleRepository.updateArticle(article.getTitle(), article.getContent(), article.getCategoryId(), new Date(), article.getStatus(), article.getId());
+                if (updateCont == 0) {
+                    return new ResponseEntity<>("{\"message\":\"Article id does not found.\"}", HttpStatus.NOT_FOUND);
+                } else {
+                    return new ResponseEntity<>("{\"message\":\"Article updated successfully.\"}", HttpStatus.OK);
+                }
+            } else {
+                return new ResponseEntity<>("{\"message\":\"Invalid value for ( " + errorKeyValue + " )\"}", HttpStatus.BAD_REQUEST);
+            }
+        } catch (Exception ex) {
+            log.error("Exception in getAllPublishedArticle : {}", ex);
+        }
+        return new ResponseEntity<>("{\"message\":\"Something went wrong.\"}", HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
+    @Override
+    public ResponseEntity<?> deleteArticle(Integer id) {
+        try {
+            if (!Objects.isNull(id)) {
+                Integer deleteCount = articleRepository.deleteArticle(id);
+                if (deleteCount == 0) {
+                    return new ResponseEntity<>("{\"message\":\"Article does not found.\"}", HttpStatus.NOT_FOUND);
+                } else {
+                    return new ResponseEntity<>("{\"message\":\"Article deleted successfully.\"}", HttpStatus.OK);
+                }
+            } else {
+                return new ResponseEntity<>("{\"message\":\"Invalid value for ( Article id )\"}", HttpStatus.BAD_REQUEST);
+            }
+        } catch (Exception ex) {
+            log.error("Exception in deleteArticle : {}", ex);
         }
         return new ResponseEntity<>("{\"message\":\"Something went wrong.\"}", HttpStatus.INTERNAL_SERVER_ERROR);
     }

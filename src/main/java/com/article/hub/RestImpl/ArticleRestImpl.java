@@ -48,4 +48,25 @@ public class ArticleRestImpl implements ArticleRest {
         }
         return new ResponseEntity<>("{\"message\":\"Something went wrong\"}", HttpStatus.INTERNAL_SERVER_ERROR);
     }
+
+    @Override
+    public ResponseEntity<?> updateArticle(Article article) {
+        try {
+            return articleService.updateArticle(article);
+        } catch (Exception ex) {
+            log.error("Exception in updateArticle : {}", ex.getMessage());
+        }
+        return new ResponseEntity<>("{\"message\":\"Something went wrong\"}", HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
+
+    @Override
+    public ResponseEntity<?> deleteArticle(Integer id) {
+        try {
+           return articleService.deleteArticle(id);
+        } catch (Exception ex) {
+            log.error("Exception in deleteArticle : {}", ex.getMessage());
+        }
+        return new ResponseEntity<>("{\"message\":\"Something went wrong\"}", HttpStatus.INTERNAL_SERVER_ERROR);
+    }
 }

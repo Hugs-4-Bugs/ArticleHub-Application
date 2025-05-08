@@ -15,7 +15,7 @@ public interface ArticleRepository extends JpaRepository<Article, Integer> {
 
     @Modifying
     @Transactional
-    Integer updateArticle(@Param("title") Integer title,
+    Integer updateArticle(@Param("title") String title,
                           @Param("content") String content,
                           @Param("categoryId") Integer categoryId,
                           @Param("publication_date") Date publication_date,

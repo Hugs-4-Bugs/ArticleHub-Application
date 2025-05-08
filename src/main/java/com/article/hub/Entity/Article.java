@@ -3,8 +3,6 @@ package com.article.hub.Entity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
-import org.springframework.data.repository.query.Param;
 
 import java.io.Serializable;
 import java.util.Date;

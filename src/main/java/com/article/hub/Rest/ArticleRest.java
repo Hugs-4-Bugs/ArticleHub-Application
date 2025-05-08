@@ -3,10 +3,7 @@ package com.article.hub.Rest;
 
 import com.article.hub.Entity.Article;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @RequestMapping(path = "/article")
 public interface ArticleRest {
@@ -19,4 +16,15 @@ public interface ArticleRest {
 
     @GetMapping(path = "/getAllPublishedArticle")
     ResponseEntity<?> getAllPublishedArticle();
+
+    @PostMapping(path = "/updateArticle")
+    ResponseEntity<?> updateArticle(@RequestBody(required = true) Article article);
+
+
+    /**
+     we can use either @GetMapping or @DeleteMapping, both will work
+     */
+//    @GetMapping(path = "/deleteArticle/{id}")
+    @DeleteMapping(path = "/deleteArticle/{id}")
+    ResponseEntity<?> deleteArticle(@PathVariable Integer id);
 }
