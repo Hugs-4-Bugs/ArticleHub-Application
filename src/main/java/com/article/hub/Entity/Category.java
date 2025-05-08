@@ -40,6 +40,10 @@ public class Category implements Serializable {
         this.name = name;
     }
 
+    public Category(Integer categoryId) {
+    this.id = categoryId;
+    }
+
 
     public Integer getId() {
         return id;
