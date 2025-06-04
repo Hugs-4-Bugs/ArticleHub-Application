@@ -206,7 +206,14 @@ Use **Postman** or similar tools to:
 
 ---
 
-## 👨‍💻 Author
+## 👨‍💻 Developed By
 
-**Prabhat Kumar**
-Backend Developer | Java & Spring Enthusiast
+**[Prabhat Kumar](https://prabhatkr.vercel.app/)**  Backend Developer | Java & Spring Enthusiast
+🚀 Founder - **[QuantumFusion Solutions](https://quantumfusion-solutions.vercel.app/)**
+
+ ---
+
+### 📎 Frontend Repo
+👉 https://github.com/Hugs-4-Bugs/ArticleHub-Frontend.git
+(Developed in Spring Boot by Prabhat Kumar)
+
