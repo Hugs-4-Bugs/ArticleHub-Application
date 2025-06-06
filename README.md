@@ -206,6 +206,29 @@ Use **Postman** or similar tools to:
 
 ---
 
+## Snapshots:
+
+<img width="1440" alt="Screenshot 2025-06-06 at 5 31 28 PM" src="https://github.com/user-attachments/assets/80edba56-8865-48d7-99d0-2657396a5345" />
+
+<img width="1440" alt="Screenshot 2025-06-06 at 5 31 44 PM" src="https://github.com/user-attachments/assets/32b15263-b189-4ffb-80e8-7635b899d690" />
+
+<img width="1440" alt="Screenshot 2025-06-06 at 5 32 00 PM" src="https://github.com/user-attachments/assets/694c2234-66fa-447e-b581-324ce62b0561" />
+
+<img width="1440" alt="Screenshot 2025-06-06 at 5 32 14 PM" src="https://github.com/user-attachments/assets/de45df78-6902-40b2-9e32-77748f945a82" />
+
+<img width="1440" alt="Screenshot 2025-06-06 at 5 32 35 PM" src="https://github.com/user-attachments/assets/945991cf-0acf-47d4-94f3-c4bae345e47d" />
+
+<img width="1440" alt="Screenshot 2025-06-06 at 5 33 48 PM" src="https://github.com/user-attachments/assets/a7a3b059-2546-4206-970f-1c94d5937042" />
+
+<img width="1440" alt="Screenshot 2025-06-06 at 5 34 03 PM" src="https://github.com/user-attachments/assets/c0d2dfcb-8a72-40a6-b598-fea0a5e53d24" />
+
+<img width="1440" alt="Screenshot 2025-06-06 at 5 34 26 PM" src="https://github.com/user-attachments/assets/39e25433-bded-4b03-9c71-cf5847790d6b" />
+
+<img width="1440" alt="Screenshot 2025-06-06 at 5 35 02 PM" src="https://github.com/user-attachments/assets/a9d63d9d-5701-4693-b899-64faf950b336" />
+
+<img width="1440" alt="Screenshot 2025-06-06 at 5 35 23 PM" src="https://github.com/user-attachments/assets/3390a8e6-d7fd-423e-9f6a-6b132eb06a16" />
+
+
 ## 👨‍💻 Developed By
 
 **[Prabhat Kumar](https://prabhatkr.vercel.app/)** [ Backend Developer | Java & Spring Enthusiast ]
