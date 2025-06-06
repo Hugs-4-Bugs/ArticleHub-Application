@@ -147,8 +147,10 @@ User Visits Article Page
 
 An icon (!) beside paid articles explains both payment tiers.
 Tooltip/dialog shows:
-₹10: Limited view
-₹50: Full access + download
+
+    ₹10: Limited view
+
+    ₹50: Full access + download
 
 
 ---
