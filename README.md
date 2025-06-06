@@ -82,6 +82,77 @@ hugs-4-bugs-articlehub-application/
 
 ---
 
+
+
+## 🧩 Paid & Unpaid Article Access Flow — Download & Payment Logic Design
+
+``` 
+User Visits Article Page
+│
+├── Is Article `contentType == UNPAID`?
+│     │
+│     └── YES
+│         │
+│         ├── Allow Full Access: View + Screenshot + Copy + Record
+│         │
+│         └── Show Download Options:
+│               ├── [1] Download This Article (PDF/DOCX)
+│               └── [2] Download All Articles from Same Category (PDF/DOCX)
+│
+└── NO → Article is PAID
+      │
+      ├── Show Tag: ⚠ PAID CONTENT
+      ├── Show Info Icon (!)
+      │     └── On Click: Show Description of 2 Payment Tiers
+      │            ├── ₹10 - View Only (No screenshot, record, copy, download)
+      │            └── ₹50 - Full Access (View + Download + Copy + Screenshot)
+      │
+      └── Ask User to Make Payment
+            │
+            ├── ₹10 Payment Done?
+            │     └── YES → Allow View Only
+            │               ├── Block Screenshot
+            │               ├── Block Screen Record
+            │               └── Block Copy
+            │
+            └── ₹50 Payment Done?
+                  └── YES → Allow:
+                            ├── View + Screenshot + Copy + Record
+                            └── Show Download Option:
+                                  └── [1] Download This Article Only (PDF/DOCX)
+```
+
+### 💰 Payment Options for Paid Articles:
+
+| Tier | Price       | Access Rights                                                                               |
+| ---- | ----------- | ------------------------------------------------------------------------------------------- |
+| ₹10  | View-only   | ❌ Screenshot<br>❌ Screen Record<br>❌ Copy<br>❌ Download                                     |
+| ₹50  | Full access | ✅ Screenshot<br>✅ Screen Record<br>✅ Copy<br>✅ Download (PDF/DOCX only for current article) |
+
+
+ **⚠️ Only ₹50 users get download access for paid articles.**
+
+
+
+### 📥 Download Feature Logic:
+
+| User          | Content Type | Download Options                      |
+| ------------- | ------------ | ------------------------------------- |
+| Any           | UNPAID       | ✅ This article<br>✅ All from category |
+| ₹50 Paid User | PAID         | ✅ This article only                   |
+| ₹10 Paid User | PAID         | ❌ No download                         |
+
+
+### ❓ Info Icon for Payment Tiers:
+
+An icon (!) beside paid articles explains both payment tiers.
+Tooltip/dialog shows:
+₹10: Limited view
+₹50: Full access + download
+
+
+---
+
 ## ✅ Features
 
 * 🔐 **JWT Authentication** (Login & Protected routes)
