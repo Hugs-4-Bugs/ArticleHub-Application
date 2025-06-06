@@ -36,6 +36,8 @@ hugs-4-bugs-articlehub-application/
 │   │   │               ├── DAO/
 │   │   │               │   ├── ArticleRepository.java
 │   │   │               │   ├── CategoryRepository.java
+│   │   │               │   ├── PaymentRepository.java
+│   │   │               │   ├── UserArticleAccessRepository.java
 │   │   │               │   └── UserInfoRepository.java
 │   │   │               ├── Data/
 │   │   │               │   └── DataLoader.java
@@ -43,6 +45,8 @@ hugs-4-bugs-articlehub-application/
 │   │   │               │   ├── Article.java
 │   │   │               │   ├── AuthRequest.java
 │   │   │               │   ├── Category.java
+│   │   │               │   ├── Payment.java
+│   │   │               │   ├── UserArticleAccess.java
 │   │   │               │   └── UserInfo.java
 │   │   │               ├── Filter/
 │   │   │               │   └── JwtAuthFilter.java
@@ -53,19 +57,27 @@ hugs-4-bugs-articlehub-application/
 │   │   │               ├── Rest/
 │   │   │               │   ├── ArticleRest.java
 │   │   │               │   ├── CategoryRest.java
+│   │   │               │   ├── PaymentRest.java
 │   │   │               │   └── UserInfoRest.java
 │   │   │               ├── RestImpl/
 │   │   │               │   ├── ArticleRestImpl.java
 │   │   │               │   ├── CategoryRestImpl.java
+│   │   │               │   ├── PaymentRestImpl.java
 │   │   │               │   └── UserInfoRestImpl.java
 │   │   │               ├── Service/
 │   │   │               │   ├── ArticleService.java
 │   │   │               │   ├── CategoryService.java
+│   │   │               │   ├── PaymentService.java
+│   │   │               │   ├── UserArticleAccessService.java
 │   │   │               │   └── UserInfoService.java
-│   │   │               └── ServiceImpl/
-│   │   │                   ├── ArticleServiceImpl.java
-│   │   │                   ├── CategoryServiceImpl.java
-│   │   │                   └── UserInfoServiceImpl.java
+│   │   │               ├── ServiceImpl/
+│   │   │               │   ├── ArticleServiceImpl.java
+│   │   │               │   ├── CategoryServiceImpl.java
+│   │   │               │   ├── PaymentServiceImpl.java
+│   │   │               │   ├── UserArticleAccessServiceImpl.java
+│   │   │               │   └── UserInfoServiceImpl.java
+│   │   │               ├── Utils/
+│   │   │               │   ├── DRMUtils.java
 │   │   └── resources/
 │   │       └── application.properties
 │   └── test/
