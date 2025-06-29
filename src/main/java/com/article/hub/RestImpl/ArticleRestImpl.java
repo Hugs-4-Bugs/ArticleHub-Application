@@ -69,4 +69,16 @@ public class ArticleRestImpl implements ArticleRest {
         }
         return new ResponseEntity<>("{\"message\":\"Something went wrong\"}", HttpStatus.INTERNAL_SERVER_ERROR);
     }
+
+//    @Override
+//    public ResponseEntity<?> updatePaidStatus(Integer id, Boolean paid) {
+//        try{
+//            return articleService.updatePaidStatus(id, paid);
+//        }catch(Exception ex){
+//        log.error("error in updatePaidStatus {}", ex.getMessage());
+//        }
+//        return null;
+//    }
+
+
 }

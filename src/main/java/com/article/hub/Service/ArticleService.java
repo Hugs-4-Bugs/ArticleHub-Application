@@ -13,4 +13,6 @@ public interface ArticleService {
     ResponseEntity<?> updateArticle(Article article);
 
     ResponseEntity<?> deleteArticle(Integer id);
+
+//    ResponseEntity<?> updatePaidStatus(Integer id, Boolean paid);
 }

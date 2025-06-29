@@ -30,4 +30,10 @@ public interface ArticleRest {
 //    @GetMapping(path = "/deleteArticle/{id}")
     @DeleteMapping(path = "/deleteArticle/{id}")
     ResponseEntity<?> deleteArticle(@PathVariable Integer id);
+
+
+    // New API endpoint to update the paid status of an article
+//    @PostMapping(path = "/updatePaidStatus/{id}")
+//    ResponseEntity<?> updatePaidStatus(@PathVariable Integer id, @RequestParam("paid") Boolean paid);
+
 }
