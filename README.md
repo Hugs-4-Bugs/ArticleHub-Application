@@ -4,7 +4,7 @@ This is the **backend service** for the ArticleHub platform, developed using Spr
 
 ---
 
-**ArticleHub Frontend: ** https://github.com/Hugs-4-Bugs/ArticleHub-Frontend
+**ArticleHub Frontend:** https://github.com/Hugs-4-Bugs/ArticleHub-Frontend
 
 ---
 
