@@ -32,6 +32,6 @@ public class DataLoader implements ApplicationRunner{
             userInfoRepository.save(userInfo);
         }
         // this is the not safe way and should not be shown the username or password like this better we can send it on the email
-        System.out.println("========== You can login with email: (mailtoprabhat72@gmail.com) and password (Prabhat123@) ==========");
+        System.out.println("========== You can login with email: (mailtoprabhat72@gmail.com) and password (Admin name with 1st char is caps and then numeric one two) ==========");
     }
 }

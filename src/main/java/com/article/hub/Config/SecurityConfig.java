@@ -86,7 +86,13 @@ public class SecurityConfig {
                                 "/appuser/login",
                                 "/appUser/addNewAppUser",
                                 "/appUser/login",
-                                "/article/getAllPublishedArticle"
+                                "/article/getAllPublishedArticle",
+
+                                // ✅ Swagger & API Docs (important)
+                                "/v3/api-docs/**",
+                                "/swagger-ui/**",
+                                "/swagger-ui.html",
+                                "/v3/api-docs.yaml"
                         )
                         .permitAll() // Allow these endpoints to be accessed without authentication
 
@@ -107,7 +113,7 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(List.of("http://localhost:4200", "http://192.168.29.102:4200")); // Only allow Angular app origin
+        configuration.setAllowedOrigins(List.of("http://localhost:4200", "http://192.168.29.102:4200", "http://10.97.94.96:8080")); // Only allow Angular app origin
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(List.of("*"));
         configuration.setAllowCredentials(true); // Optional if you use cookies or Authorization header
