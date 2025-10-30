@@ -113,7 +113,7 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(List.of("http://localhost:4200", "http://192.168.29.102:4200", "http://10.97.94.96:8080")); // Only allow Angular app origin
+        configuration.setAllowedOrigins(List.of("http://localhost:4200", "http://192.168.29.102:4200", "http://10.97.94.96:8081")); // Only allow Angular app origin
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(List.of("*"));
         configuration.setAllowCredentials(true); // Optional if you use cookies or Authorization header
